@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowa Strona</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(45deg, #4CAF50, #2196F3);
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        #hejText {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        #poTymText {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        #quizLink {
+            text-decoration: none;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fade-in" id="hejText" onclick="aktywujQuiz()">
+        <i class="icon fas fa-hand-wave"></i> Hej!
+    </div>
+    <div class="fade-in" id="poTymText">
+        <i class="icon fas fa-clock"></i> Po tym Hej!
+    </div>
+    <a href="index.html" id="quizLink">
+        <i class="icon fas fa-puzzle-piece"></i> Przejdź do quizu
+    </a>
+
+    <script>
+        function aktywujQuiz() {
+            document.getElementById('quizLink').removeAttribute('disabled');
+            document.getElementById('quizLink').style.opacity = 1;
+        }
+
+       
+        window.onload = function() {
+            let elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                element.style.opacity = 1;
+            });
+        };
+    </script>
+</body>
+</html>
